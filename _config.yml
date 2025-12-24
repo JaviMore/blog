@@ -1,0 +1,55 @@
+# Site settings
+title: Mi Blog
+description: Un blog personal creado con Beautiful Jekyll
+author: Tu Nombre
+baseurl: ""
+url: ""
+
+# Beautiful Jekyll theme
+remote_theme: daattali/beautiful-jekyll@6.0.1
+
+# Navbar links
+navbar-links:
+  Inicio: "index.html"
+  Sobre mí: "aboutme"
+  Blog: "blog"
+
+# Avatar - uncomment and add your avatar image path
+# avatar: "/assets/img/avatar.jpg"
+
+# Social network links (optional)
+social-network-links:
+  email: "tu@email.com"
+  github: tuusuario
+  # twitter: tuusuario
+  # linkedin: tuusuario
+  # instagram: tuusuario
+
+# Excerpt settings
+excerpt_length: 50
+
+# Syntax highlighting
+markdown: kramdown
+highlighter: rouge
+
+# Plugins
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Pagination
+paginate: 5
+paginate_path: "/blog/page:num/"
+
+# Build settings
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - README.md

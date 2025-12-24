@@ -11,11 +11,12 @@ remote_theme: daattali/beautiful-jekyll@6.0.1
 # Navbar links
 navbar-links:
   Inicio: "index.html"
-  Sobre mí: "aboutme"
   Blog: "blog.html"
+  Sobre mí: "aboutme"
+ 
 
 # Avatar - uncomment and add your avatar image path
-avatar: "assets/images/avatar.png"
+avatar: "assets/img/logo.png"
 
 
 # Social network links (optional)

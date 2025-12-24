@@ -2,8 +2,8 @@
 title: Mi Blog
 description: Un blog personal creado con Beautiful Jekyll
 author: Tu Nombre
-baseurl: "/blog" 
-url: "https://javimore.github.io"
+baseurl: "" 
+url: "https://blog.trasteando.org"
 
 # Beautiful Jekyll theme
 remote_theme: daattali/beautiful-jekyll@6.0.1

@@ -1,0 +1,100 @@
+---
+layout: base
+---
+
+{{ content }}
+
+<style>
+/* Dark mode toggle button */
+.theme-toggle {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  background: #333;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+}
+
+body.dark-mode {
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+}
+
+body.dark-mode .navbar-custom {
+  background-color: #2d2d2d;
+  border-bottom-color: #404040;
+}
+
+body.dark-mode .navbar-custom .navbar-brand,
+body.dark-mode .navbar-custom .navbar-nav .nav-link {
+  color: #e0e0e0;
+}
+
+body.dark-mode .intro-header {
+  background-color: #2d2d2d;
+}
+
+body.dark-mode .post-preview {
+  border-bottom-color: #404040;
+}
+
+body.dark-mode .post-preview .post-title,
+body.dark-mode h1, body.dark-mode h2, body.dark-mode h3 {
+  color: #e0e0e0;
+}
+
+body.dark-mode footer {
+  background-color: #2d2d2d;
+  border-top-color: #404040;
+}
+
+body.dark-mode code {
+  background-color: #2d2d2d;
+  color: #e0e0e0;
+}
+
+body.dark-mode pre {
+  background-color: #2d2d2d;
+  border-color: #404040;
+}
+</style>
+
+<script>
+(function() {
+  const currentTheme = localStorage.getItem('theme') || 'light';
+  
+  if (currentTheme === 'dark') {
+    document.body.classList.add('dark-mode');
+  }
+
+  const toggleButton = document.createElement('button');
+  toggleButton.className = 'theme-toggle';
+  toggleButton.setAttribute('aria-label', 'Toggle dark mode');
+  toggleButton.innerHTML = currentTheme === 'dark' ? '☀️' : '🌙';
+  
+  document.body.appendChild(toggleButton);
+
+  toggleButton.addEventListener('click', function() {
+    const isDarkMode = document.body.classList.toggle('dark-mode');
+    const theme = isDarkMode ? 'dark' : 'light';
+    localStorage.setItem('theme', theme);
+    toggleButton.innerHTML = isDarkMode ? '☀️' : '🌙';
+  });
+})();
+</script>

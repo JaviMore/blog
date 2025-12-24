@@ -1,7 +1,7 @@
 # Site settings
-title: Mi Blog
+title: Blog Trasteando
 description: Un blog personal creado con Beautiful Jekyll
-author: Tu Nombre
+#author: Javier Moreno
 baseurl: "" 
 url: "https://blog.trasteando.org"
 
@@ -12,24 +12,17 @@ remote_theme: daattali/beautiful-jekyll@6.0.1
 navbar-links:
   Inicio: "index.html"
   Sobre mí: "aboutme"
-  Blog: "blog"
+  Blog: "blog.html"
 
 # Avatar - uncomment and add your avatar image path
-# avatar: "/assets/img/avatar.jpg"
+avatar: "assets/images/avatar.png"
 
-# Theme toggle for dark/light mode
-site-theme-toggle: true
-
-# Add image to navbar (Octocat or custom image)
-navbar-img: "https://octodex.github.com/images/original.png"
 
 # Social network links (optional)
 social-network-links:
-  email: "tu@email.com"
-  github: tuusuario
-  # twitter: tuusuario
-  # linkedin: tuusuario
-  # instagram: tuusuario
+  github: JaviMore
+  linkedin: jmorenogonzalez
+
 
 # Excerpt settings
 excerpt_length: 50
@@ -49,6 +42,16 @@ plugins:
 # Pagination
 paginate: 5
 paginate_path: "/blog/page:num/"
+
+# Site-wide defaults to include custom CSS/JS
+defaults:
+  - scope:
+      path: ""
+    values:
+      css:
+        - /assets/css/custom-dark-mode.css
+      js:
+        - /assets/js/dark-mode.js
 
 # Build settings
 exclude:

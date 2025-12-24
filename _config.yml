@@ -17,6 +17,12 @@ navbar-links:
 # Avatar - uncomment and add your avatar image path
 # avatar: "/assets/img/avatar.jpg"
 
+# Theme toggle for dark/light mode
+site-theme-toggle: true
+
+# Add image to navbar (Octocat or custom image)
+navbar-img: "https://octodex.github.com/images/original.png"
+
 # Social network links (optional)
 social-network-links:
   email: "tu@email.com"

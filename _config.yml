@@ -1,9 +1,10 @@
 # Site settings
 title: Trasteando
 description: Un blog personal alojado en GitHub Pages
-#author: Javier Moreno
 baseurl: "" 
 url: "https://blog.trasteando.org"
+avatar: "/assets/img/logo.png"
+favicon: "/favicon.ico"
 
 # Beautiful Jekyll theme
 remote_theme: daattali/beautiful-jekyll@6.0.1
@@ -13,10 +14,6 @@ navbar-links:
   Inicio: "index.html"
   Blog: "blog.html"
   Sobre mí: "aboutme"
- 
-
-# Avatar - uncomment and add your avatar image path
-avatar: "assets/img/logo.png"
 
 
 # Social network links (optional)

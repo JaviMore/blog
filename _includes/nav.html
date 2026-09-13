@@ -1,0 +1,41 @@
+<header class="site-header" id="site-header">
+  <div class="container site-header__inner">
+    <a class="brand" href="{{ '/' | relative_url }}">
+      <img class="brand__mark" src="{{ '/assets/img/logo-icon.png' | relative_url }}" width="52" height="42" alt="{{ site.title }}" translate="no">
+    </a>
+
+    <nav class="site-nav" aria-label="Navegación principal">
+      <ul class="site-nav__list">
+        {% for link in site.navbar-links %}
+        {% assign href = link[1] %}
+        <li>
+          <a href="{{ href | relative_url }}"
+             class="site-nav__link{% if page.url == href %} is-active{% endif %}">
+            {{ link[0] }}
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </nav>
+
+    <div class="site-header__actions">
+      <button type="button" class="icon-btn" id="theme-toggle" aria-label="Cambiar tema" aria-pressed="false">
+        <svg class="icon-sun" viewBox="0 0 24 24" width="19" height="19" aria-hidden="true"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.4M12 19.1v2.4M4.6 4.6l1.7 1.7M17.7 17.7l1.7 1.7M2.5 12h2.4M19.1 12h2.4M4.6 19.4l1.7-1.7M17.7 6.3l1.7-1.7"/></svg>
+        <svg class="icon-moon" viewBox="0 0 24 24" width="19" height="19" aria-hidden="true"><path d="M20 14.5A8.5 8.5 0 1 1 9.5 4a7 7 0 0 0 10.5 10.5Z"/></svg>
+      </button>
+
+      <button type="button" class="icon-btn menu-toggle" id="menu-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-nav">
+        <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+
+  <nav class="mobile-nav" id="mobile-nav" aria-label="Navegación móvil">
+    <ul>
+      {% for link in site.navbar-links %}
+      {% assign href = link[1] %}
+      <li><a href="{{ href | relative_url }}" class="{% if page.url == href %}is-active{% endif %}">{{ link[0] }}</a></li>
+      {% endfor %}
+    </ul>
+  </nav>
+</header>

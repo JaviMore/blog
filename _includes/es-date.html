@@ -1,0 +1,22 @@
+{%- comment -%}
+  Renders a date in Spanish, e.g. "24 de diciembre de 2025".
+  Usage: {% include es-date.html date=post.date %}
+  Needed because Jekyll's %B strftime token renders English month names
+  on GitHub Pages' build environment regardless of site language.
+{%- endcomment -%}
+{%- assign es_month_num = include.date | date: "%-m" -%}
+{%- case es_month_num -%}
+  {%- when '1' -%}{%- assign es_month = "enero" -%}
+  {%- when '2' -%}{%- assign es_month = "febrero" -%}
+  {%- when '3' -%}{%- assign es_month = "marzo" -%}
+  {%- when '4' -%}{%- assign es_month = "abril" -%}
+  {%- when '5' -%}{%- assign es_month = "mayo" -%}
+  {%- when '6' -%}{%- assign es_month = "junio" -%}
+  {%- when '7' -%}{%- assign es_month = "julio" -%}
+  {%- when '8' -%}{%- assign es_month = "agosto" -%}
+  {%- when '9' -%}{%- assign es_month = "septiembre" -%}
+  {%- when '10' -%}{%- assign es_month = "octubre" -%}
+  {%- when '11' -%}{%- assign es_month = "noviembre" -%}
+  {%- when '12' -%}{%- assign es_month = "diciembre" -%}
+{%- endcase -%}
+{{- include.date | date: "%-d" }} de {{ es_month }} de {{ include.date | date: "%Y" -}}

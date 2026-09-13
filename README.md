@@ -1,6 +1,6 @@
-# Mi Blog con Beautiful Jekyll
+# trasteando
 
-Este es mi blog personal creado con GitHub Pages y el tema [Beautiful Jekyll](https://beautifuljekyll.com/).
+Blog personal alojado en GitHub Pages, con un tema propio (sin remote theme) construido en Jekyll puro: layouts e includes a medida, un design system en `assets/css/main.css` y animaciones en `assets/js/main.js`.
 
 ## 🚀 Inicio Rápido
 
@@ -61,13 +61,19 @@ Edita el archivo `_config.yml` para personalizar:
 
 ```
 blog/
-├── _config.yml          # Configuración del sitio
-├── _posts/              # Tus posts del blog
-├── Gemfile              # Dependencias de Ruby
-├── index.html           # Página principal
-├── aboutme.md           # Página "Sobre mí"
-├── blog.html            # Lista de posts
-└── README.md            # Este archivo
+├── _config.yml           # Configuración del sitio
+├── _posts/               # Posts del blog
+├── _layouts/             # Plantillas (home, page, post, postlist, default)
+├── _includes/            # Cabecera, nav, footer, tarjeta de post, fecha en ES
+├── assets/css/main.css   # Design system (tokens, componentes, animaciones)
+├── assets/js/main.js     # Tema, menú móvil, scroll reveal, copiar código
+├── assets/img/           # Logo, favicons
+├── index.html            # Página principal
+├── blog/index.html       # Listado de posts (paginado)
+├── aboutme.md            # Página "Sobre mí"
+├── 404.html              # Página de error
+├── Gemfile               # Dependencias de Ruby
+└── README.md             # Este archivo
 ```
 
 ## 🌐 Desplegar en GitHub Pages

@@ -1,0 +1,36 @@
+---
+layout: default
+---
+<section class="hero">
+  <div class="container hero__inner">
+    <p class="hero__eyebrow reveal" translate="no">{{ page.title | default: site.title }}</p>
+    <h1 class="hero__title reveal">
+      {{ page.subtitle | default: site.description }}
+    </h1>
+    {{ content }}
+    <div class="hero__actions reveal">
+      <a class="btn btn--primary" href="{{ '/blog/' | relative_url }}">
+        Ver el blog
+        <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M2 8h11M8.5 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a class="btn btn--ghost" href="{{ '/aboutme' | relative_url }}">Sobre mí</a>
+    </div>
+  </div>
+  <div class="hero__circuit" aria-hidden="true"></div>
+</section>
+
+{% assign recent_posts = site.posts | slice: 0, 4 %}
+{% if recent_posts.size > 0 %}
+<section class="container section">
+  <div class="section__heading">
+    <h2 class="section__title reveal">Últimas entradas</h2>
+    <a class="section__link" href="{{ '/blog/' | relative_url }}">Ver todas</a>
+  </div>
+
+  <div class="post-grid">
+    {% for post in recent_posts %}
+    {% include post-card.html post=post heading=3 %}
+    {% endfor %}
+  </div>
+</section>
+{% endif %}

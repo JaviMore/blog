@@ -1,0 +1,33 @@
+{% assign excerpt_length = site.excerpt_length | default: 50 %}
+{% assign heading_level = include.heading | default: 2 %}
+<article class="post-card reveal">
+  <a class="post-card__link" href="{{ post.url | relative_url }}">
+    <p class="post-card__meta">
+      <time datetime="{{ post.date | date_to_xmlschema }}">{% include es-date.html date=post.date %}</time>
+      {% assign words = post.content | strip_html | number_of_words %}
+      <span aria-hidden="true">·</span>
+      <span>{{ words | divided_by: 200 | at_least: 1 }} min de lectura</span>
+    </p>
+
+    <h{{ heading_level }} class="post-card__title">{{ post.title }}</h{{ heading_level }}>
+
+    {% if post.subtitle %}
+    <p class="post-card__subtitle">{{ post.subtitle }}</p>
+    {% endif %}
+
+    <p class="post-card__excerpt">{{ post.excerpt | strip_html | truncatewords: excerpt_length }}</p>
+
+    <span class="post-card__cta">
+      Leer artículo
+      <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M2 8h11M8.5 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </span>
+  </a>
+
+  {% if post.tags.size > 0 %}
+  <div class="tag-list">
+    {% for tag in post.tags %}
+    <span class="tag-chip">{{ tag }}</span>
+    {% endfor %}
+  </div>
+  {% endif %}
+</article>

@@ -2,6 +2,7 @@
 layout: page
 title: Sobre mí
 subtitle: Conoce un poco más sobre mí
+permalink: /aboutme
 ---
 
 Mi nombre es Javier Moreno y este es mi blog personal.

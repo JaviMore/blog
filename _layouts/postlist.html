@@ -1,0 +1,43 @@
+---
+layout: default
+---
+<header class="page-header">
+  <div class="container">
+    <p class="page-header__eyebrow reveal" translate="no">{{ site.title }}</p>
+    <h1 class="page-header__title reveal">{{ page.title }}</h1>
+    {% if page.subtitle %}
+    <p class="page-header__subtitle reveal">{{ page.subtitle }}</p>
+    {% endif %}
+  </div>
+</header>
+
+<section class="container section">
+  {% assign posts = paginator.posts | default: site.posts %}
+  {% if posts.size > 0 %}
+  <div class="post-grid">
+    {% for post in posts %}
+    {% include post-card.html post=post %}
+    {% endfor %}
+  </div>
+  {% else %}
+  <p class="empty-state">Todavía no hay entradas publicadas. ¡Vuelve pronto!</p>
+  {% endif %}
+
+  {% if paginator.total_pages > 1 %}
+  <nav class="pagination" aria-label="Paginación">
+    {% if paginator.previous_page %}
+    <a class="pagination__link" href="{{ paginator.previous_page_path | relative_url }}">← Más recientes</a>
+    {% else %}
+    <span class="pagination__link pagination__link--disabled">← Más recientes</span>
+    {% endif %}
+
+    <span class="pagination__status">Página {{ paginator.page }} de {{ paginator.total_pages }}</span>
+
+    {% if paginator.next_page %}
+    <a class="pagination__link" href="{{ paginator.next_page_path | relative_url }}">Más antiguas →</a>
+    {% else %}
+    <span class="pagination__link pagination__link--disabled">Más antiguas →</span>
+    {% endif %}
+  </nav>
+  {% endif %}
+</section>

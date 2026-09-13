@@ -1,0 +1,54 @@
+---
+layout: default
+---
+<header class="post-header">
+  <div class="container">
+    <a class="back-link reveal" href="{{ '/blog/' | relative_url }}">
+      <svg viewBox="0 0 16 16" width="14" height="14" aria-hidden="true"><path d="M14 8H3M7.5 3 2.5 8l5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      Blog
+    </a>
+
+    <h1 class="post-header__title reveal">{{ page.title }}</h1>
+    {% if page.subtitle %}
+    <p class="post-header__subtitle reveal">{{ page.subtitle }}</p>
+    {% endif %}
+
+    <p class="post-header__meta reveal">
+      <time datetime="{{ page.date | date_to_xmlschema }}">{% include es-date.html date=page.date %}</time>
+      <span aria-hidden="true">·</span>
+      {% assign words = content | strip_html | number_of_words %}
+      <span>{{ words | divided_by: 200 | at_least: 1 }} min de lectura</span>
+    </p>
+  </div>
+</header>
+
+<article class="container prose-wrap">
+  <div class="prose reveal">
+    {{ content }}
+  </div>
+
+  {% if page.tags.size > 0 %}
+  <div class="tag-list tag-list--post">
+    {% for tag in page.tags %}
+    <span class="tag-chip">{{ tag }}</span>
+    {% endfor %}
+  </div>
+  {% endif %}
+
+  {% if page.previous or page.next %}
+  <nav class="post-pager" aria-label="Navegación entre entradas">
+    {% if page.previous %}
+    <a class="post-pager__link post-pager__link--prev" href="{{ page.previous.url | relative_url }}">
+      <span class="post-pager__label">Anterior</span>
+      <span class="post-pager__title">{{ page.previous.title }}</span>
+    </a>
+    {% else %}<span></span>{% endif %}
+    {% if page.next %}
+    <a class="post-pager__link post-pager__link--next" href="{{ page.next.url | relative_url }}">
+      <span class="post-pager__label">Siguiente</span>
+      <span class="post-pager__title">{{ page.next.title }}</span>
+    </a>
+    {% endif %}
+  </nav>
+  {% endif %}
+</article>

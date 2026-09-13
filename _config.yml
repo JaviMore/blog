@@ -1,26 +1,23 @@
 # Site settings
-title: Trasteando
-description: Un blog personal alojado en GitHub Pages
-baseurl: "" 
+title: trasteando
+description: "Proyectos, código y cacharreo con electrónica, automatización e IA."
+lang: es
+baseurl: ""
 url: "https://blog.trasteando.org"
-avatar: "/assets/img/logo.png"
+logo: "/assets/img/logo.png"
 favicon: "/favicon.ico"
-
-# Beautiful Jekyll theme
-remote_theme: daattali/beautiful-jekyll@6.0.1
+author: Javier Moreno
 
 # Navbar links
 navbar-links:
-  Inicio: "index.html"
-  Blog: "blog.html"
-  Sobre mí: "aboutme"
-
+  Inicio: "/"
+  Blog: "/blog/"
+  Sobre mí: "/aboutme"
 
 # Social network links (optional)
 social-network-links:
   github: JaviMore
   linkedin: jmorenogonzalez
-
 
 # Excerpt settings
 excerpt_length: 50
@@ -28,6 +25,9 @@ excerpt_length: 50
 # Syntax highlighting
 markdown: kramdown
 highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
 
 # Plugins
 plugins:
@@ -35,21 +35,26 @@ plugins:
   - jekyll-sitemap
   - jekyll-feed
   - jekyll-seo-tag
-  - jekyll-remote-theme
 
 # Pagination
-paginate: 5
+paginate: 6
 paginate_path: "/blog/page:num/"
 
-# Site-wide defaults to include custom CSS/JS
+# Permalinks
+permalink: /:year/:month/:day/:title/
+
+# Defaults
 defaults:
   - scope:
       path: ""
+      type: posts
     values:
-      css:
-        - /assets/css/custom-dark-mode.css
-      js:
-        - /assets/js/dark-mode.js
+      layout: post
+  - scope:
+      path: ""
+      type: pages
+    values:
+      layout: page
 
 # Build settings
 exclude:
